@@ -17,10 +17,9 @@ const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
     auth: {
-        user: 'gafrontspace@gmail.com',
-        pass: 'ixbniicxiwutcdmx'
-     
-    }
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
 });
 async function sendMail(to, subject, html) {
     const mailOptions = {
