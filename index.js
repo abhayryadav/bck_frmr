@@ -113,6 +113,11 @@ app.post("/queries", async (req, res) => {
 
 
 
+app.get("/q", async (req, res) => {
+    return "hiiiiii";
+})
+
+
 function started() {
     console.log(`Server is running at http://localhost:${port}`);
 }
