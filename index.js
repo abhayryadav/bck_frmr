@@ -114,8 +114,8 @@ app.post("/queries", async (req, res) => {
 
 
 app.get("/q", async (req, res) => {
-    return "hiiiiii";
-})
+    res.send("hiiiiii"); // Send a response back to the client
+});
 
 
 function started() {
