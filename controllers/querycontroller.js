@@ -7,20 +7,19 @@ async function sendMail(to, subject, html) {
         from: 'gafrontspace@gmail.com',  // Replace with your email address
         to: to,
         subject: subject,
-        // text: text,
         html: html
     };
-    const i=null;
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log('Error sending email:', error);
-        }
+
+    try {
+        const info = await transporter.sendMail(mailOptions);
         console.log('Email sent:', info.response);
-        i=info.response;
-        
-    });
-    return i;
+        return info.response;  // Return the response from the email
+    } catch (error) {
+        console.log('Error sending email:', error);
+        throw error;  // Rethrow the error so it can be handled by the caller
+    }
 }
+
 
 // Controller function to handle the query submission
 async function submitQuery(req, res) {
