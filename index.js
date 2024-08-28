@@ -17,29 +17,48 @@ const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-    },
+        user: 'gafrontspace@gmail.com',
+        pass: 'ixbniicxiwutcdmx'
+     
+    }
 });
+// async function sendMail(to, subject, html) {
+//     const mailOptions = {
+//         from: 'gafrontspace@gmail.com',  // Replace with your email address
+//         to: to,
+//         subject: subject,
+//         // text: text,
+//         html: html
+//     };
+//     const i=null;
+//     transporter.sendMail(mailOptions, (error, info) => {
+//         if (error) {
+//             return console.log('Error sending email:', error);
+//         }
+//         console.log('Email sent:', info.response);
+//         i=info.response;
+        
+//     });
+//     return i;
+// }
 async function sendMail(to, subject, html) {
     const mailOptions = {
         from: 'gafrontspace@gmail.com',  // Replace with your email address
         to: to,
         subject: subject,
-        // text: text,
         html: html
     };
-    const i=null;
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log('Error sending email:', error);
-        }
+
+    try {
+        const info = await transporter.sendMail(mailOptions);
         console.log('Email sent:', info.response);
-        i=info.response;
-        
-    });
-    return i;
+        return info.response;
+    } catch (error) {
+        console.log('Error sending email:', error);
+        return null;
+    }
 }
+
 
 
 
@@ -110,8 +129,6 @@ app.post("/queries", async (req, res) => {
     }
 });
 
-
-
 app.get("/q", async (req, res) => {
     res.send("hiiiiii"); // Send a response back to the client
 });
@@ -122,3 +139,4 @@ function started() {
 }
 
  app.listen(port, started);
+
