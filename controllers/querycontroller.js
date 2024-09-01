@@ -107,7 +107,7 @@ async function submitQuery(req, res) {
 
         // Await the sendMail promise
         const emailResponse = await sendMail(
-            'info@farmerlegacybiotech.com',
+            // 'info@farmerlegacybiotech.com',
             'abhayryadav0007@gmail.com',
             `webquerry from ${body.email} , name - ${body.name}`,
             `
