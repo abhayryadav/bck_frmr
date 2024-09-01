@@ -10,7 +10,11 @@ const port = 4000;
 // Middleware setup
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    origin: 'https://farmerlegacybiotech.com' 
+}));
+
 app.use('/static', express.static(path.join(__dirname, 'images')));
 
 // Use routers
