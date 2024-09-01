@@ -8,6 +8,9 @@ const transporter = nodemailer.createTransport({
         user: 'gafrontspace@gmail.com',
         pass: 'ixbniicxiwutcdmx'
      
+    },
+    tls: {
+        rejectUnauthorized: false  // Use this if you face issues with self-signed certificates
     }
 });
 
