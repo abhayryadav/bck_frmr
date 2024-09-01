@@ -24,8 +24,6 @@ const corsOptions = {
     credentials: true
   };
   
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));  // Enable pre-flight for all routes
 const allowedOrigins = ['http://www.farmerlegacybiotech.com', 'https://farmerlegacybiotech.com', 'https://tobereviewed-2-lg1d.vercel.app'];
 // middleware
 app.use((req, res, next) => {
@@ -63,8 +61,8 @@ app.use((req, res, next) => {
 //     credentials: true
 // };
 
-// app.use(cors(corsOptions));
-// app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 
 
