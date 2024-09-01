@@ -18,7 +18,22 @@ const corsOptions = {
     credentials: true
   };
   
-  app.use(cors(corsOptions));
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));  // Enable pre-flight for all routes
+const allowedOrigins = ['http://www.farmerlegacybiotech.com', 'https://farmerlegacybiotech.com', 'https://tobereviewed-2-lg1d.vercel.app'];
+// middleware
+app.use((req, res, next) => {
+    const origin = req.get('Origin');
+    if (allowedOrigins.includes(origin)) {
+        res.header("Access-Control-Allow-Origin", origin);
+    }
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(204); // Respond successfully to OPTIONS request
+    }
+    next();
+});
 
 app.use('/static', express.static(path.join(__dirname, 'images')));
 
