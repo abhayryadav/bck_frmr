@@ -12,9 +12,10 @@ app.use(express.json());
 app.use(bodyParser.json());
 // app.use(cors());
 const corsOptions = {
-    origin: ['http://www.farmerlegacybiotech.com', 'https://farmerlegacybiotech.com'],
+    origin: ['http://www.farmerlegacybiotech.com', 'https://farmerlegacybiotech.com','https://tobereviewed-2-lg1d.vercel.app/'],
     methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
   };
   
   app.use(cors(corsOptions));
