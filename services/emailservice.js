@@ -10,9 +10,9 @@ const transporter = nodemailer.createTransport({
         pass: 'jerswlodcsbqmjil'
      
     },
-    tls: {
-        rejectUnauthorized: false  // Use this if you face issues with self-signed certificates
-    }
+    // tls: {
+    //     rejectUnauthorized: false  // Use this if you face issues with self-signed certificates
+    // }
 });
 
 module.exports = transporter;

@@ -10,7 +10,7 @@ const port = 4000;
 // Middleware setup
 
 app.use(bodyParser.json());
-// app.use(cors());
+app.use(cors());
 
 
 
@@ -42,30 +42,30 @@ app.use(bodyParser.json());
 
 
 // same as above but bit advanced
-const allowedOrigins = [
-    'http://www.farmerlegacybiotech.com',
-    'https://farmerlegacybiotech.com',
-    'https://tobereviewed-2-lg1d.vercel.app'
-];
+// const allowedOrigins = [
+//     'http://www.farmerlegacybiotech.com',
+//     'https://farmerlegacybiotech.com',
+//     'https://tobereviewed-2-lg1d.vercel.app'
+// ];
 
-const corsOptions = {
-    origin: (origin, callback) => {
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
-};
-
-
+// const corsOptions = {
+//     origin: (origin, callback) => {
+//         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     },
+//     methods: ['GET', 'POST', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//     credentials: true
+// };
 
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+
+
+// app.use(cors(corsOptions));
+// app.options('*', cors(corsOptions));
 
 
 
